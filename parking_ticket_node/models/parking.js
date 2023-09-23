@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 
 const parkingSchema = new mongoose.Schema(
   {
-    title: String,
+    title: {
+      type: String,
+      unique: true,
+    },
     carPlate: String,
     phone: String,
     duration: String,
