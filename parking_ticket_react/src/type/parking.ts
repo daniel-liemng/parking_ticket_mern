@@ -6,4 +6,6 @@ export interface Parking {
   duration: string;
   expiresAt: string;
   occupied: boolean;
+  price?: string;
+  updatedAt?: string;
 }

@@ -27,6 +27,7 @@ router.patch('/:pTitle', async (req, res) => {
 
     parking.carPlate = req.body.carPlate ? req.body.carPlate : parking.carPlate;
     parking.phone = req.body.phone ? req.body.phone : parking.phone;
+    parking.charge = req.body.charge ? req.body.charge : parking.charge;
     parking.duration = req.body.duration ? req.body.duration : parking.duration;
     parking.expiresAt = req.body.expiresAt
       ? req.body.expiresAt

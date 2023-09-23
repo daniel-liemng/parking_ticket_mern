@@ -8,6 +8,7 @@ const parkingSchema = new mongoose.Schema(
     },
     carPlate: String,
     phone: String,
+    charge: Number,
     duration: String,
     expiresAt: String,
     occupied: Boolean,
