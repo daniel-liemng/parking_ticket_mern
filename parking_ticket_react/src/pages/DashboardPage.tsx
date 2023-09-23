@@ -3,20 +3,41 @@ import { useAppStore } from '../context/store';
 import { Parking } from '../type/parking';
 import axios from 'axios';
 import moment from 'moment';
+import toast from 'react-hot-toast';
 
 const DashboardPage = () => {
   const fetchAgain = useAppStore((state) => state.fetchAgain);
+  const toggleFetchAgain = useAppStore((state) => state.toggleFetchAgain);
 
   const [parkings, setParkings] = useState<Parking[]>([]);
 
   useEffect(() => {
     const fetchParkings = async () => {
-      const { data } = await axios.get('/');
-      setParkings(data);
+      try {
+        const { data } = await axios.get('/');
+        setParkings(data);
+      } catch (err) {
+        console.log(err);
+        toast.error('Something went wrong');
+      }
     };
 
     fetchParkings();
   }, [fetchAgain]);
+
+  const handleParkOut = async (parkingLot: string) => {
+    console.log('78', parkingLot);
+
+    try {
+      const { data } = await axios.patch(`/${parkingLot}/park-out`);
+      console.log(data);
+
+      toggleFetchAgain();
+    } catch (err) {
+      console.log(err);
+      toast.error('Something went wrong');
+    }
+  };
 
   return (
     <div className='p-8'>
@@ -66,20 +87,23 @@ const DashboardPage = () => {
                   <td className='px-6 py-4'>{parking.carPlate}</td>
                   <td className='px-6 py-4'>{parking.phone}</td>
                   <td className='px-6 py-4'>
-                    {moment(parking.updatedAt).format('DD-MM-YYYY, h:mm:ss a')}
+                    {moment(parking.startsAt).format('DD-MM-YYYY, h:mm:ss a')}
                   </td>
                   <td className='px-6 py-4'>
                     {moment(parking.expiresAt).format('DD-MM-YYYY, h:mm:ss a')}
                   </td>
                   <td className='px-6 py-4'>{parking.duration}</td>
-                  <td className='px-6 py-4'>{parking?.price}</td>
+                  <td className='px-6 py-4'>
+                    {parking.charge && `$${parking.charge}`}
+                  </td>
                   <td className='px-6 py-4 text-right'>
-                    <a
-                      href='#'
+                    <button
+                      type='button'
+                      onClick={() => handleParkOut(parking.title)}
                       className='font-medium text-blue-600 dark:text-blue-500 hover:underline'
                     >
                       Park Out
-                    </a>
+                    </button>
                   </td>
                 </tr>
               ))}

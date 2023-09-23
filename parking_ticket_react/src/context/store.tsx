@@ -18,8 +18,3 @@ export const useAppStore = create<AppState>()(
     )
   )
 );
-
-// export const useAppStore = create<AppState>((set) => ({
-//   fetchAgain: false,
-//   toggleFetchAgain: () => set((state) => ({ fetchAgain: !state.fetchAgain })),
-// }));

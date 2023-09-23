@@ -4,8 +4,9 @@ export interface Parking {
   carPlate: string;
   phone: string;
   duration: string;
+  startsAt: string;
   expiresAt: string;
   occupied: boolean;
-  price?: string;
+  charge?: string;
   updatedAt?: string;
 }

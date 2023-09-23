@@ -10,6 +10,7 @@ const parkingSchema = new mongoose.Schema(
     phone: String,
     charge: Number,
     duration: String,
+    startsAt: String,
     expiresAt: String,
     occupied: Boolean,
   },

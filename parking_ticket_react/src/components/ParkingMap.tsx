@@ -1,5 +1,5 @@
 import CarImg from '../assets/hatchback-top-view.png';
-import { useAppStore } from '../context/store';
+
 import { Parking } from '../type/parking';
 
 interface ParkingMapProps {
@@ -7,10 +7,6 @@ interface ParkingMapProps {
 }
 
 const ParkingMap = ({ parkings }: ParkingMapProps) => {
-  const a = useAppStore((state) => state.fetchAgain);
-
-  console.log('999', a);
-
   return (
     <div className='h-[320px] w-[420px] bg-slate-400 m-5 p-[10px]'>
       <div className='grid grid-cols-5 w-full h-[150px]'>

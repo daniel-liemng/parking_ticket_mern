@@ -46,6 +46,7 @@ const CreateTicket = () => {
         phone,
         charge,
         duration,
+        startsAt: new Date(),
         expiresAt: moment(new Date()).add(duration, 'm').toDate(),
         occupied: true,
       });

@@ -4,6 +4,7 @@ import ParkingMap from '../components/ParkingMap';
 import { useEffect, useState } from 'react';
 import { Parking } from '../type/parking';
 import { useAppStore } from '../context/store';
+import toast from 'react-hot-toast';
 
 const HomePage = () => {
   const fetchAgain = useAppStore((state) => state.fetchAgain);
@@ -14,8 +15,13 @@ const HomePage = () => {
 
   useEffect(() => {
     const fetchParkings = async () => {
-      const { data } = await axios.get('/');
-      setParkings(data);
+      try {
+        const { data } = await axios.get('/');
+        setParkings(data);
+      } catch (err) {
+        console.log(err);
+        toast.error('Something went wrong');
+      }
     };
 
     fetchParkings();

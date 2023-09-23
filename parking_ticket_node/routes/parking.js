@@ -29,10 +29,31 @@ router.patch('/:pTitle', async (req, res) => {
     parking.phone = req.body.phone ? req.body.phone : parking.phone;
     parking.charge = req.body.charge ? req.body.charge : parking.charge;
     parking.duration = req.body.duration ? req.body.duration : parking.duration;
+    parking.startsAt = req.body.startsAt ? req.body.startsAt : parking.startsAt;
     parking.expiresAt = req.body.expiresAt
       ? req.body.expiresAt
       : parking.expiresAt;
     parking.occupied = req.body.occupied ? req.body.occupied : parking.occupied;
+
+    await parking.save();
+
+    res.status(200).send(parking);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+router.patch('/:pTitle/park-out', async (req, res) => {
+  try {
+    const parking = await Parking.findOne({ title: req.params.pTitle });
+
+    parking.carPlate = '';
+    parking.phone = '';
+    parking.charge = '';
+    parking.duration = '';
+    parking.startsAt = '';
+    parking.expiresAt = '';
+    parking.occupied = false;
 
     await parking.save();
 
