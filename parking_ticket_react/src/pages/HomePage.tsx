@@ -11,8 +11,6 @@ const HomePage = () => {
 
   const [parkings, setParkings] = useState<Parking[]>([]);
 
-  // const [fetchAgain, setFetchAgain] = useState<boolean>(false);
-
   useEffect(() => {
     const fetchParkings = async () => {
       try {
@@ -27,7 +25,6 @@ const HomePage = () => {
     fetchParkings();
   }, [fetchAgain]);
 
-  console.log('88', parkings);
   return (
     <>
       <div className='flex flex-wrap gap-2'>
