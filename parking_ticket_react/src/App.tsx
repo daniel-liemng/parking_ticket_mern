@@ -6,7 +6,8 @@ import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import DashboardPage from './pages/DashboardPage';
 
-axios.defaults.baseURL = 'http://localhost:5000/api/parking';
+// axios.defaults.baseURL = 'http://localhost:5000/api/parking';
+axios.defaults.baseURL = 'https://parking-ticket-mern.vercel.app/api/parking';
 
 const router = createBrowserRouter([
   {
