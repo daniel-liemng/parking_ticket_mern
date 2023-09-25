@@ -22,10 +22,8 @@ A parking lot ticket system where users can buy parking lot ticket and reserve a
 
 ## Screenshots
 
-![App Screenshot](https://github.com/daniel-liemng/job-search-next-prisma-supabase/blob/master/public/screenshot/dashboard_home.png)
-![App Screenshot](https://github.com/daniel-liemng/job-search-next-prisma-supabase/blob/master/public/screenshot/dashboard_createCompany.png)
-![App Screenshot](https://github.com/daniel-liemng/job-search-next-prisma-supabase/blob/master/public/screenshot/dashboard_createJob.png)
-![App Screenshot](https://github.com/daniel-liemng/job-search-next-prisma-supabase/blob/master/public/screenshot/dashboard_jobs.png)
+![App Screenshot](https://github.com/daniel-liemng/parking_ticket_mern/blob/master/screenshot/parking-1.png)
+![App Screenshot](https://github.com/daniel-liemng/parking_ticket_mern/blob/master/screenshot/parking-2.png)
 
 ## Installation
 
